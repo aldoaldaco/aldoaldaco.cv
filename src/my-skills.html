@@ -1,14 +1,5 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/vaadin-progress-bar/vaadin-progress-bar.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-skills">
@@ -16,22 +7,81 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="shared-styles">
       :host {
         display: block;
-
         padding: 10px;
+        color: var(--app-sixth-color);
+        --lumo-primary-color: var(--app-third-color);
+        --lumo-contrast-10pct: var(--app-sixth-color);
+      }
+      .section {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        margin: 0 auto;
+      }
+      .skill {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        margin-bottom: 5px;
+        color: var(--app-fourth-color);
+      }
+      vaadin-progress-bar {
+        width: 90%;
+        text-align: center;
+      }
+      h2 {
+        margin: 0 auto;
+      }
+      h3 {
+        margin-top: 0;
+        margin-bottom: 0px;
+        margin-left: 10px;
+        font-size: 12px;
+      }
+      .porcentage {
+        width: 10%;
+        text-align: center;
       }
     </style>
 
-    <div class="card">
-      <div class="circle">3</div>
-      <h1>SKILLS</h1>
-      <p>Modus commodo minimum eum te, vero utinam assueverit per eu.</p>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
+    <div class="section">
+      <h3>HTML</h3>
+      <div class="skill">
+        <vaadin-progress-bar value="0.7"></vaadin-progress-bar>
+        <div class="porcentage">70%</div>
+      </div>
+      <h3>CSS</h3>
+      <div class="skill">
+        <vaadin-progress-bar value="0.7"></vaadin-progress-bar>
+        <div class="porcentage">70%</div>
+      </div>
+      <h3>JS</h3>
+      <div class="skill">
+        <vaadin-progress-bar value="0.7"></vaadin-progress-bar>
+        <div class="porcentage">70%</div>
+      </div>
+      <h3>PHP</h3>
+      <div class="skill">
+        <vaadin-progress-bar value="0.8"></vaadin-progress-bar>
+        <div class="porcentage">70%</div>
+      </div>
+      <h3>NODE JS</h3>
+      <div class="skill">
+        <vaadin-progress-bar value="0.8"></vaadin-progress-bar>
+        <div class="porcentage">70%</div>
+      </div>
     </div>
+
   </template>
 
   <script>
     class MySkills extends Polymer.Element {
-      static get is() { return 'my-skills'; }
+      static get is() {
+        return 'my-skills';
+      }
     }
 
     window.customElements.define(MySkills.is, MySkills);

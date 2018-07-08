@@ -16,7 +16,8 @@
     "paper-icon-button": "PolymerElements/paper-icon-button#^2.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
     "paper-dialog": "^2.1.1",
-    "iron-image": "^2.2.1"
+    "iron-image": "^2.2.1",
+    "vaadin-progress-bar": "vaadin/vaadin-progress-bar#^1.0.0"
   },
   "resolutions": {
     "polymer": "^2.0.0",
