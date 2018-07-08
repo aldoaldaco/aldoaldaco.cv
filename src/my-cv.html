@@ -24,6 +24,9 @@
     <style include="shared-styles">
       :host {
         display: block;
+        --app-drawer-content-container: {
+          background: var(--app-fifth-color);
+        };
       }
       app-drawer-layout:not([narrow]) [drawer-toggle] {
         display: none;
@@ -56,6 +59,9 @@
         color: var(--app-sixth-color);
         font-weight: bold;
       }
+      .drawer-list a:focus {
+        outline: none;
+      }
       .profile {
         color: var(--app-primary-color);
         font-size: 16px;
@@ -71,9 +77,14 @@
       .image {
         width: 150px;
         height: 150px;
+        padding: 5px;
         border-radius: 50%;
-        border: 3px solid var(--app-third-color);
-        margin-bottom: 20px;
+        border: 2px solid var(--app-third-color);
+        margin-bottom: 10px;
+      }
+      .profile {
+        padding-top: 10px;
+        /*border-top: 2px solid var(--app-third-color);*/
       }
       iron-image {
         width: 100%;
