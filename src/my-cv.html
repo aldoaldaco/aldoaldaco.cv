@@ -32,10 +32,6 @@
         display: none;
         --app-drawer-scrim-background: var(--app-fourth-color);
       }
-      app-header {
-        color: var(--app-fourth-color);
-        background-color: var(--app-primary-color);
-      }
       app-header paper-icon-button {
         --paper-icon-button-ink-color: var(--app-secondary-color);
       }
@@ -43,7 +39,7 @@
         font-weight: bold;
         text-align: center;
         font-size: 24px;
-        color: var(--app-sixth-color);
+        color: var(--app-fifth-color);
       }
       app-toolbar paper-icon-button {
         color: var(--app-sixth-color);
@@ -70,8 +66,9 @@
         outline: none;
       }
       .profile {
-        color: var(--app-primary-color);
         font-size: 16px;
+        font-weight: bold;
+        font-weight: bolder;
       }
       .toolbar {
         display: flex;
@@ -79,7 +76,9 @@
         justify-content: center;
         align-items: center;
         align-content: space-between;
-        margin-top: 20px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        color: var(--app-primary-color);
       }
       .image {
         width: 150px;
@@ -114,7 +113,6 @@
     </app-route>
 
     <app-drawer-layout fullbleed narrow="{{narrow}}">
-      <!-- Drawer content -->
       <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
         <div class="toolbar">
           <div class="image">
@@ -132,16 +130,13 @@
         </iron-selector>
       </app-drawer>
 
-      <!-- Main content -->
       <app-header-layout has-scrolling-region>
-
         <app-header slot="header" condenses fixed reveals effects="waterfall">
           <app-toolbar>
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
             <div main-title>[[_computeHeader(page)]]</div>
           </app-toolbar>
         </app-header>
-
         <iron-pages
             selected="[[page]]"
             attr-for-selected="name"
@@ -157,10 +152,7 @@
   </template>
 
   <script>
-    // Gesture events like tap and track generated from touch will not be
-    // preventable, allowing for better scrolling performance.
     Polymer.setPassiveTouchGestures(true);
-
     class MyCv extends Polymer.Element {
       static get is() { return 'my-cv'; }
       static get properties() {
@@ -176,9 +168,7 @@
           },
           routeData: Object,
           subroute: Object,
-          // This shouldn't be neccessary, but the Analyzer isn't picking up
-          // Polymer.Element#rootPath
-          rootPath: String,
+          rootPath: String
         };
       }
       static get observers() {
@@ -187,17 +177,12 @@
         ];
       }
       _routePageChanged(page) {
-        // If no page was found in the route data, page will be an empty string.
-        // Default to 'about' in that case.
         this.page = page || 'about';
-
-        // Close a non-persistent drawer when the page & route are changed.
         if (!this.$.drawer.persistent) {
           this.$.drawer.close();
         }
       }
       _pageChanged(page) {
-        // Load page import on demand. Show 404 page if fails
         const resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
         Polymer.importHref(
             resolvedPageUrl,
