@@ -1,0 +1,84 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/spinkit-element/spinkit-element.html">
+<link rel="import" href="my-job.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-experience">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+    </style>
+
+    <spinkit-element name="circle" size="100" active></spinkit-element>
+
+    <template is="dom-repeat" items="[[jobs]]">
+      <my-job number="[[index]]" job="[[item]]"></my-job>
+    </template>
+
+  </template>
+
+  <script>
+    class MyExperience extends Polymer.Element {
+      static get is() {
+        return 'my-experience';
+      }
+
+      static get properties() {
+        return {
+          jobs: {
+            type: Array,
+            value: [{
+                tittle: 'FullStack Developer',
+                company: 'EInteligent',
+                description: 'Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks',
+                projects: [{
+                  tittle: 'Access System',
+                  stack: ['HTML', 'CSS', 'SQL', 'ASP'],
+                  description: 'System to get control about the people that ...'
+                },{
+                  tittle: 'TODO System',
+                  stack: ['HTML', 'CSS', 'SQL', 'ASP'],
+                  description: 'System to get control about the tasks of the team of developers'
+                },{
+                  tittle: 'TODO System',
+                  stack: ['HTML', 'CSS', 'SQL', 'ASP'],
+                  description: 'System to get control about the tasks of the team of developers'
+                }],
+                initDate: '2012',
+                endDate: '2013'
+              },
+              {
+              tittle: 'Backend Developer',
+              company: 'Premium Restaurant Brands',
+              description: 'Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks',
+                projects: [{
+                  tittle: 'Monitor System',
+                  stack: ['BASH', 'C'],
+                  description: 'Script to compare the quantity of chicken meat ...'
+                },{
+                  tittle: 'Modelo de Labor',
+                  stack: ['BASH'],
+                  description: 'Script to compare the quantity of chicken meat ...'
+                }]
+              },
+              {
+              tittle: 'FullStack Developer'
+              },
+              {
+              tittle: 'FrontEnd Developer'
+              }
+            ]
+          }
+        }
+      }
+      _computeIndex(index) {
+
+      }
+    }
+
+    window.customElements.define(MyExperience.is, MyExperience);
+  </script>
+</dom-module>

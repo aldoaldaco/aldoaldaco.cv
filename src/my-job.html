@@ -1,0 +1,168 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-job">
+  <template>
+    <style include="shared-styles">
+      .circle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: 24px;
+        padding: 16px;
+        color: var(--app-fourth-color);
+        border-radius: 5px;
+        background-color: var(--app-sixth-color);
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+      .job {
+        display: flex;
+        flex-direction: row;
+      }
+      .job-header {
+        display: flex;
+        flex-direction: row;
+      }
+      .job-header-left {
+        display: flex;
+        flex-direction: column;
+        width: 87%;
+      }
+      .job-header-right {
+        width: 13%;
+      }
+      .job-header-left h2 {
+        margin: 0px;
+        padding: 0px;
+      }
+      .job-header-left h4 {
+        margin: 0px;
+        padding: 0px;
+        color: var(--app-third-color);
+      }
+      .job-index {
+        margin-top: 24px;
+        margin-left: 24px;
+        display: block;
+        width: 64px;
+        height: 64px;
+        text-align: center;
+        color: var(--app-sixth-color);
+        border-radius: 50%;
+        background: var(--app-third-color);
+        font-size: 30px;
+        line-height: 64px;
+      }
+      .job-line {
+        width: 2px;
+        height: 100%;
+        margin-top: 24px;
+        margin-left: 24px;
+        border-right: 2px solid var(--app-sixth-color);
+      }
+      .project {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .stack {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .stack-item {
+        min-width: 70px;
+        max-width: 70px;
+        border-radius: 3px;
+        text-align: center;
+        color: var(--app-sixth-color);
+        background-color: var(--app-third-color);
+      }
+    </style>
+
+    <paper-dialog entry-animation="scale-up-animation"
+                  exit-animation="fade-out-animation">
+      <h2>Header</h2>
+      <div>Dialog body</div>
+    </paper-dialog>
+    <div class="job">
+      <div class="circle">
+        <div class="job-index">
+          [[index]]
+        </div>
+        <div class="job-line"></div>
+      </div>
+      <div class="card">
+        <div class="job-header">
+          <div class="job-header-left">
+            <h2 class="job-company">[[job.company]]</h2>
+            <h4 class="job-tittle">[[job.tittle]]</h4>
+            <p>[[job.description]]</p>
+          </div>
+          <div class="job-header-right">
+            <p>[[date]]</p>
+          </div>
+        </div>
+        <div class="project">
+          <template is="dom-repeat" items="[[job.projects]]" as="project">
+            <div class="project-item">
+              <h3>[[project.tittle]]</h3>
+              <p>[[project.description]]</p>
+              <div class="stack">
+                <template is="dom-repeat" items="[[project.stack]]" as="stack">
+                  <div class="stack-item">[[stack]]</div>
+                </template>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script>
+    class MyJob extends Polymer.Element {
+      static get is() {
+        return 'my-job';
+      }
+      static get properties() {
+        return {
+          job: {
+            type: Object,
+            value: {}
+          },
+          number: {
+            type: Number,
+            value: 0
+          },
+          index: {
+            type: Number,
+            value: 0,
+            computed: '_computeIndex(number)'
+          },
+          date: {
+            type: String,
+            value: '',
+            computed: '_computeDate(job)'
+          }
+        };
+      }
+      _computeIndex(value) {
+        return value + 1;
+      }
+      _computeDate(value) {
+        if(value.initDate && value.endDate) {
+          return `${value.initDate} - ${value.endDate}`;
+        }
+        return ``;
+      }
+    }
+    window.customElements.define(MyJob.is, MyJob);
+  </script>
+</dom-module>

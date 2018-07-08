@@ -12,7 +12,7 @@
   "rules": {
     "brace-style": "off",
     "new-cap": ["error", { "capIsNewExceptions": ["Polymer"] }],
-    "no-var": "off",
+    "no-var": "on",
     "require-jsdoc": "off"
   },
   "globals": {
