@@ -9,6 +9,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-top: 16px;
       }
       .card {
         display: flex;
@@ -66,10 +67,41 @@
         margin-left: 24px;
         border-right: 2px solid var(--app-sixth-color);
       }
-      .project {
+      .projects {
+        margin: 0 auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-content: center;
+        align-items: center;
+      }
+      .project-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .project-item p {
+        text-align: center;
+      }
+      .job-detail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
+        text-align: center;
+        color: var(--app-fourth-color);
+        border-radius: 50%;
+        border: 2px solid var(--app-third-color);
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 34px;
+      }
+      .job-detail:hover {
+        cursor: pointer;
+        background: var(--app-third-color);
+        color: var(--app-sixth-color);
       }
       .stack {
         display: flex;
@@ -78,19 +110,28 @@
         justify-content: space-between;
       }
       .stack-item {
-        min-width: 70px;
-        max-width: 70px;
-        border-radius: 3px;
+        min-width: 50px;
+        max-width: 50px;
+        border-radius: 2px;
         text-align: center;
+        font-size: 10px;
         color: var(--app-sixth-color);
-        background-color: var(--app-third-color);
+        background-color: var(--app-fourth-color);
       }
     </style>
 
-    <paper-dialog entry-animation="scale-up-animation"
-                  exit-animation="fade-out-animation">
+    <paper-dialog>
       <h2>Header</h2>
-      <div>Dialog body</div>
+      <!--DESCRIPTION JOB PROJECT-->
+      <div class="project-item">
+        <h3>[[project.title]]</h3>
+        <p>[[project.description]]</p>
+        <div class="stack">
+          <template is="dom-repeat" items="[[project.stack]]" as="stack">
+            <div class="stack-item">[[stack]]</div>
+          </template>
+        </div>
+      </div>
     </paper-dialog>
     <div class="job">
       <div class="circle">
@@ -103,24 +144,25 @@
         <div class="job-header">
           <div class="job-header-left">
             <h2 class="job-company">[[job.company]]</h2>
-            <h4 class="job-tittle">[[job.tittle]]</h4>
+            <h4 class="job-title">[[job.title]]</h4>
             <p>[[job.description]]</p>
           </div>
           <div class="job-header-right">
             <p>[[date]]</p>
           </div>
         </div>
-        <div class="project">
+        <div class="projects">
           <template is="dom-repeat" items="[[job.projects]]" as="project">
-            <div class="project-item">
-              <h3>[[project.tittle]]</h3>
+            <div class="job-detail">[[_computeProject(project)]]</div>
+            <!--<div class="project-item">
+              <h3>[[project.title]]</h3>
               <p>[[project.description]]</p>
               <div class="stack">
                 <template is="dom-repeat" items="[[project.stack]]" as="stack">
                   <div class="stack-item">[[stack]]</div>
                 </template>
               </div>
-            </div>
+            </div>-->
           </template>
         </div>
       </div>
@@ -154,13 +196,24 @@
         };
       }
       _computeIndex(value) {
-        return value + 1;
+        if(value >= 0) {
+          return value + 1;
+        }
+        return 0;
+
       }
       _computeDate(value) {
         if(value.initDate && value.endDate) {
           return `${value.initDate} - ${value.endDate}`;
         }
         return ``;
+      }
+      _computeProject(project) {
+        let string = project.title;
+        if(string) {
+          return string.replace(/\w\S*/g, (letter) => {return letter.charAt(0).toUpperCase();});
+        }
+        return `P`;
       }
     }
     window.customElements.define(MyJob.is, MyJob);
