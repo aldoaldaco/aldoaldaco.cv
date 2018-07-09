@@ -1,5 +1,4 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../bower_components/spinkit-element/spinkit-element.html">
 <link rel="import" href="my-job.html">
 <link rel="import" href="shared-styles.html">
 
@@ -11,8 +10,6 @@
         padding: 10px;
       }
     </style>
-
-    <spinkit-element name="circle" size="100" active></spinkit-element>
 
     <template is="dom-repeat" items="[[jobs]]">
       <my-job number="[[index]]" job="[[item]]"></my-job>
@@ -51,9 +48,9 @@
                 endDate: '2013'
               },
               {
-              title: 'Backend Developer',
-              company: 'Premium Restaurant Brands',
-              description: 'Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks',
+                title: 'Backend Developer',
+                company: 'Premium Restaurant Brands',
+                description: 'Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks',
                 projects: [{
                   title: 'Monitor System',
                   stack: ['BASH', 'C'],
@@ -62,23 +59,47 @@
                   title: 'Modelo de Labor',
                   stack: ['BASH'],
                   description: 'Script to compare the quantity of chicken meat ...'
-                }]
+                }],
+                initDate: '2013',
+                endDate: '2014'
               },
               {
-              title: 'FullStack Developer'
+                title: 'Backend Developer',
+                company: 'Premium Restaurant Brands',
+                description: 'Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks',
+                projects: [{
+                  title: 'Monitor System',
+                  stack: ['BASH', 'C'],
+                  description: 'Script to compare the quantity of chicken meat ...'
+                },{
+                  title: 'Modelo de Labor',
+                  stack: ['BASH'],
+                  description: 'Script to compare the quantity of chicken meat ...'
+                }],
+                initDate: '2013',
+                endDate: '2014'
               },
               {
-              title: 'FrontEnd Developer'
+                title: 'Backend Developer',
+                company: 'Premium Restaurant Brands',
+                description: 'Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks',
+                projects: [{
+                  title: 'Monitor System',
+                  stack: ['BASH', 'C'],
+                  description: 'Script to compare the quantity of chicken meat ...'
+                },{
+                  title: 'Modelo de Labor',
+                  stack: ['BASH'],
+                  description: 'Script to compare the quantity of chicken meat ...'
+                }],
+                initDate: '2013',
+                endDate: '2014'
               }
             ]
           }
         }
       }
-      _computeIndex(index) {
-
-      }
     }
-
     window.customElements.define(MyExperience.is, MyExperience);
   </script>
 </dom-module>

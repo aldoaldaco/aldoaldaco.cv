@@ -1,0 +1,66 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<script src="../bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+<link rel="import" href="../bower_components/google-map/google-map.html">
+<link rel="import" href="../bower_components/google-map/google-map-marker.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-contact">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        font-family: 'Roboto', Arial, sans-serif;
+        height: 100%;
+        margin: 0;
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+        color: var(--app-sixth-color);
+        display: flex;
+        flex-direction: row;
+      }
+      .left-side {
+        width: calc(50% - 40px);
+        margin: 20px;
+        height: 50vh;
+        border: 2px solid var(--app-third-color);
+      }
+      .right-side {
+        width: 50%;
+        height: 80%;
+        margin: 20px;
+        border: 2px solid var(--app-sixth-color);
+      }
+    </style>
+
+    <div class="container">
+      <div class="left-side">
+        <google-map zoom="15" max-zoom="17" min-zoom="13" latitude="19.461640" longitude="-99.186987" fit-to-markers api-key="AIzaSyA3MwmvSQHGOQT9MgClqdxWIAAw41Kn2i0">
+          <google-map-marker draggable="true" latitude="19.461640" longitude="-99.186987"></google-map-marker>
+        </google-map>
+      </div>
+      <div class="right-side">
+        <div>FACEBOOK</div>
+        <div>PHONE</div>
+        <div>MAIL</div>
+      </div>
+    </div>
+  </template>
+  <script>
+    class MyContact extends Polymer.Element {
+      static get is() {
+        return 'my-contact';
+      }
+      static get properties() {
+        return {
+          contact: {
+            type: Object,
+            value: {}
+          }
+        };
+      }
+    }
+    window.customElements.define(MyContact.is, MyContact);
+  </script>
+</dom-module>
