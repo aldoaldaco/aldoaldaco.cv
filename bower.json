@@ -19,7 +19,9 @@
     "iron-image": "^2.2.1",
     "vaadin-progress-bar": "vaadin/vaadin-progress-bar#^1.0.0",
     "iron-icons": "^2.1.1",
-    "paper-button": "^2.1.1"
+    "paper-button": "^2.1.1",
+    "paper-input": "^2.2.3",
+    "paper-checkbox": "^2.0.4"
   },
   "resolutions": {
     "polymer": "^2.0.0",

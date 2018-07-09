@@ -61,14 +61,14 @@
         padding: 0;
       }
       .drawer-list {
-        margin: 0 20px;
+        margin: 0 0;
       }
       .drawer-list a {
         display: block;
         padding: 0 16px;
         text-decoration: none;
         color: var(--app-secondary-color);
-        line-height: 40px;
+        line-height: 45px;
       }
       .drawer-list a.iron-selected {
         background-color: var(--app-third-color);
@@ -77,6 +77,12 @@
       }
       .drawer-list a:focus {
         outline: none;
+      }
+      .drawer-list a:hover {
+        background-color: var(--app-sixth-color);
+      }
+      .drawer-list a.iron-selected:hover {
+        background-color: var(--app-third-color);
       }
       .profile {
         font-size: 16px;
@@ -104,7 +110,6 @@
       .profile {
         padding-top: 10px;
         font-weight: bold;
-        /*border-top: 2px solid var(--app-third-color);*/
       }
       iron-image {
         width: 100%;

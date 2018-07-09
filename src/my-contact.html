@@ -1,5 +1,13 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
-<script src="../bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/iron-icons/communication-icons.html">
+<link rel="import" href="../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../bower_components/iron-icons/hardware-icons.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/google-map/google-map.html">
 <link rel="import" href="../bower_components/google-map/google-map-marker.html">
 <link rel="import" href="shared-styles.html">
@@ -8,8 +16,10 @@
   <template>
     <style include="shared-styles">
       :host {
-        display: block;
-        font-family: 'Roboto', Arial, sans-serif;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
         height: 100%;
         margin: 0;
       }
@@ -21,16 +31,137 @@
         flex-direction: row;
       }
       .left-side {
-        width: calc(50% - 40px);
+        width: calc(55% - 30px);
+        padding: 10px;
         margin: 20px;
+        margin-rigth: 10px;
         height: 50vh;
         border: 2px solid var(--app-third-color);
+        border-radius: 3px;
       }
-      .right-side {
-        width: 50%;
+      .form {
+        width: 45%;
         height: 80%;
-        margin: 20px;
-        border: 2px solid var(--app-sixth-color);
+        margin-top: 20px;
+        padding: 20px;
+        padding-top: 0;
+        padding-left: 0;
+        border-radius: 3px;
+      }
+      iron-icon {
+        --iron-icon-fill-color: var(--app-sixth-color);
+        color: var(--app-third-color);
+        fill: var(--app-third-color);
+      }
+      paper-button {
+        background-color: var(--app-third-color);
+      }
+      paper-input {
+        text-align: center;
+        --paper-input-container-input: {
+          padding: 0;
+        };
+        --paper-input-container: {
+          padding-bottom: 0;
+        };
+        --paper-input-container-underline-focus: {
+          border-width: 3px;
+          height: 3px;
+        };
+        --paper-input-container-underline: {
+          border-width: 2px;
+          height: 2px;
+        };
+        --paper-input-container-color: var(--app-third-color);
+        --paper-input-container-focus-color: var(--app-third-color);
+        --paper-input-container-invalid-color: var(--app-third-color);
+        --paper-input-container-input-color: var(--app-fourth-color);
+        --error-color: var(--app-error-color);
+        background: var(--app-sixth-color);
+      }
+      paper-textarea {
+        --iron-autogrow-textarea: {
+          width: 100%;
+          height: 150px;
+          border-bottom: 2px solid var(--app-third-color);
+        };
+        --paper-input-container-underline-focus: {
+          border-width: 3px;
+          height: 3px;
+        };
+        --paper-input-container-underline: {
+          border-width: 2px;
+          height: 2px;
+        };
+        --paper-input-container-color: var(--app-third-color);
+        --paper-input-container-focus-color: var(--app-third-color);
+        --paper-input-container-invalid-color: var(--app-third-color);
+        --paper-input-container-input-color: var(--app-fourth-color);
+        --error-color: var(--app-error-color);
+        background: var(--app-sixth-color);
+        margin-bottom: 30px;
+      }
+      .names {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .company {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0;
+        margin-bottom: 20px;
+      }
+      .types {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0;
+        margin-bottom: 20px;
+      }
+      .email {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0;
+        margin-bottom: 20px;
+      }
+      #name {
+        width: 48%;
+      }
+      #last {
+        width: 48%;
+      }
+      #email {
+        width: 100%;
+      }
+      paper-checkbox {
+        --paper-checkbox-size: 20px;
+        --paper-checkbox-checked-color: var(--app-fifth-color);
+        --paper-checkbox-checkmark-color: var(--app-third-color);
+        --paper-checkbox-unchecked-color: var(--app-third-color);
+        --paper-checkbox-unchecked-ink-color: var(--app-fifth-color);
+        --paper-checkbox-label-color: var(--app-fifth-color);
+        --paper-checkbox-vertical-align: middle;
+      }
+      .contacts {
+        margin-top: 40px;
+        list-style: none;
+        color: var(--app-sixth-color);
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10px;
+      }
+      .social {
+        margin-left: 10px;
       }
     </style>
 
@@ -39,11 +170,73 @@
         <google-map zoom="15" max-zoom="17" min-zoom="13" latitude="19.461640" longitude="-99.186987" fit-to-markers api-key="AIzaSyA3MwmvSQHGOQT9MgClqdxWIAAw41Kn2i0">
           <google-map-marker draggable="true" latitude="19.461640" longitude="-99.186987"></google-map-marker>
         </google-map>
+        <div class="contacts">
+          <ul>
+            <li>
+              <div>
+                <iron-icon icon="social:person"></iron-icon>
+              </div>
+              <div class="social">
+                Name: Aldo Aldaco Contreras
+              </div>
+            </li>
+            <li>
+              <div>
+                <iron-icon icon="communication:location-on"></iron-icon>
+              </div>
+              <div class="social">
+                Address: Calz. Gral. Mariano Escobedo 303, Granada, 11520 Ciudad de México, CDMX
+              </div>
+            </li>
+            <li>
+              <div>
+                <iron-icon icon="communication:call"></iron-icon>
+              </div>
+              <div class="social">
+                Phone: +1525513044563
+              </div>
+            </li>
+            <li>
+              <div>
+                <iron-icon icon="hardware:computer"></iron-icon>
+              </div>
+              <div class="social">
+                Skype: aldo_aldaco
+              </div>
+            </li>
+            <li>
+              <div>
+                <iron-icon icon="icons:mail"></iron-icon>
+              </div>
+              <div class="social">
+                Email: aldo_aldaco@hotmail.com
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="right-side">
-        <div>FACEBOOK</div>
-        <div>PHONE</div>
-        <div>MAIL</div>
+      <div class="form">
+        <iron-form>
+          <form method="get" action="/form/handler">
+            <div class="names">
+              <paper-input id="name" label="Name" type="string" required></paper-input>
+              <paper-input id="last" label="Last Name" type="string" required></paper-input>
+            </div>
+            <div class="company">
+              <paper-input id="company" label="Company" type="mail" required></paper-input>
+            </div>
+            <div class="email">
+              <paper-input id="email" label="Email" type="mail" prefix="@mail.com.mx" required></paper-input>
+            </div>
+            <div class="types">
+              <paper-checkbox>Web Design</paper-checkbox>
+              <paper-checkbox>Web Development</paper-checkbox>
+              <paper-checkbox>UI & UX</paper-checkbox>
+            </div>
+            <paper-textarea label="Your message"></paper-textarea>
+            <paper-button raised>Send message</paper-button>
+          </form>
+        </iron-form>
       </div>
     </div>
   </template>

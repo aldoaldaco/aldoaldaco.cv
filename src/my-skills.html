@@ -26,7 +26,7 @@
         flex-direction: row;
         text-align: center;
         margin-bottom: 5px;
-        color: var(--app-fourth-color);
+        color: var(--app-sixth-color);
       }
       vaadin-progress-bar {
         width: 90%;
@@ -48,39 +48,51 @@
     </style>
 
     <div class="section">
-      <h3>HTML</h3>
-      <div class="skill">
-        <vaadin-progress-bar value="0.7"></vaadin-progress-bar>
-        <div class="porcentage">70%</div>
-      </div>
-      <h3>CSS</h3>
-      <div class="skill">
-        <vaadin-progress-bar value="0.7"></vaadin-progress-bar>
-        <div class="porcentage">70%</div>
-      </div>
-      <h3>JS</h3>
-      <div class="skill">
-        <vaadin-progress-bar value="0.7"></vaadin-progress-bar>
-        <div class="porcentage">70%</div>
-      </div>
-      <h3>PHP</h3>
-      <div class="skill">
-        <vaadin-progress-bar value="0.8"></vaadin-progress-bar>
-        <div class="porcentage">70%</div>
-      </div>
-      <h3>NODE JS</h3>
-      <div class="skill">
-        <vaadin-progress-bar value="0.8"></vaadin-progress-bar>
-        <div class="porcentage">70%</div>
-      </div>
+      <template is="dom-repeat" items="[[skills]]" as="skill">
+        <h3>[[skill.tech]]</h3>
+        <div class="skill">
+          <vaadin-progress-bar value="[[skill.level]]"></vaadin-progress-bar>
+          <div class="porcentage">[[_computePercentage(skill)]]</div>
+        </div>
+      </template>
     </div>
-
   </template>
 
   <script>
     class MySkills extends Polymer.Element {
       static get is() {
         return 'my-skills';
+      }
+      static get properties() {
+        return {
+          skills: {
+            type: Array,
+            value: [{
+              section: 'Web Development',
+              tech: 'HTML',
+              level: 0.7
+            }, {
+              section: 'Web Development',
+              tech: 'CSS',
+              level: 0.7
+            }, {
+              section: 'Web Development',
+              tech: 'JS',
+              level: 0.65
+            }, {
+              section: 'Bakend Development',
+              tech: 'PHP',
+              level: 0.6
+            }]
+          }
+        };
+      }
+      _computePercentage(skill) {
+        if(skill) {
+          const value = skill.level * 100;
+          return `${value} % `;
+        }
+        return '';
       }
     }
 
