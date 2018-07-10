@@ -54,6 +54,8 @@
         fill: var(--app-third-color);
       }
       paper-button {
+        margin: 0 auto;
+        width: 80%;
         background-color: var(--app-third-color);
       }
       paper-input {
@@ -160,6 +162,11 @@
         flex-direction: row;
         margin-bottom: 10px;
       }
+      .areas {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
       .social {
         margin-left: 10px;
       }
@@ -167,8 +174,8 @@
 
     <div class="container">
       <div class="left-side">
-        <google-map zoom="15" max-zoom="17" min-zoom="13" latitude="19.461640" longitude="-99.186987" fit-to-markers api-key="AIzaSyA3MwmvSQHGOQT9MgClqdxWIAAw41Kn2i0">
-          <google-map-marker draggable="true" latitude="19.461640" longitude="-99.186987"></google-map-marker>
+        <google-map zoom="15" max-zoom="17" min-zoom="13" latitude="19.4413561" longitude="-99.1860372" fit-to-markers api-key="AIzaSyA3MwmvSQHGOQT9MgClqdxWIAAw41Kn2i0">
+          <google-map-marker draggable="true" latitude="19.4413561" longitude="-99.1860372"></google-map-marker>
         </google-map>
         <div class="contacts">
           <ul>
@@ -233,8 +240,10 @@
               <paper-checkbox>Web Development</paper-checkbox>
               <paper-checkbox>UI & UX</paper-checkbox>
             </div>
-            <paper-textarea label="Your message"></paper-textarea>
-            <paper-button raised>Send message</paper-button>
+            <div class="areas">
+              <paper-textarea label="Your message"></paper-textarea>
+              <paper-button raised>Send message</paper-button>
+            </div>
           </form>
         </iron-form>
       </div>

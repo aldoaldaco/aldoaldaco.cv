@@ -134,26 +134,6 @@
       .project-item p {
         text-align: center;
       }
-      .job-detail {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 45px;
-        height: 45px;
-        text-align: center;
-        color: var(--app-fourth-color);
-        background: var(--app-sixth-color);
-        border-radius: 50%;
-        border: 2px solid var(--app-third-color);
-        font-size: 15px;
-        font-weight: bold;
-        line-height: 34px;
-      }
-      .job-detail:hover {
-        cursor: pointer;
-        background: var(--app-third-color);
-        color: var(--app-sixth-color);
-      }
       .stack {
         display: flex;
         flex-direction: row;
@@ -195,13 +175,13 @@
       }
       .plus:hover {
         cursor: pointer;
-        --paper-icon-button-ink-color: var(--app-third-color);
         --paper-icon-button: {
           width: 55px;
           height: 55px;
           border-radius: 50%;
           font-size: 24px;
-          color: var(--app-fourth-color);
+
+          opacity: 0.5;
         };
       }
       .plus:active, .plus:focus {
@@ -245,6 +225,7 @@
         </div>
         <div class="projects" hidden$="[[!hideAccordion]]">
           <h6>Projects</h6>
+          <div class="separator"></div>
           <template is="dom-repeat" items="[[job.projects]]" as="project">
             <div class="project-item">
               <paper-button class="primary" on-click="_showInfo">
