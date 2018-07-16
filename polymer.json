@@ -8,6 +8,7 @@
     "src/my-experience.html",
     "src/my-contact.html",
     "src/my-skills.html",
+    "src/shared-styles.html",
     "src/my-view404.html"
   ],
   "sources": [
