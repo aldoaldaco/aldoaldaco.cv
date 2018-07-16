@@ -1,0 +1,121 @@
+{
+  "about": {
+    "title": "about me",
+    "description": "My name is Aldo, i\"m 26 years old, i\"m a Software Engineer, i have a 2 year old son and i\"m married, i work for the biggest bank in Mexico at BBVA Bancomer Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+  },
+  "education": {
+    "title": "education",
+    "courses": [
+      {
+        "title": "Web Expert Developer",
+        "icon": "person",
+        "description": ""
+      },{
+        "title": "Agil Mind",
+        "icon": "person",
+        "description": ""
+      },{
+        "title": "Introduction to Laravel 4",
+        "icon": "web",
+        "description": ""
+      },{
+        "title": "Advance CSS and Sass",
+        "icon": "web",
+        "description": ""
+      }, {
+        "title": "ReactJS + Redux + ES6",
+        "icon": "web",
+        "description": ""
+      }, {
+        "title": "Test DJANGO",
+        "icon": "web",
+        "description": ""
+      }, {
+        "title": "The complete Java course",
+        "icon": "web",
+        "description": ""
+      }
+    ],
+    "school": [
+      {
+        "name": "Instituto Politecnico Nacional",
+        "college": "Escuala Superior de Computo",
+        "career": "Compute Science",
+        "grade": "Engineer in Systems",
+        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+      },
+      {
+        "name": "Instituto Politecnico Nacional",
+        "college": "CECyT. 11 Wilfrido Massiue Perez",
+        "career": "Compute Science",
+        "grade": "Technique in telecomunications",
+        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+      }
+    ]
+  },
+  "references": {
+    "title": "references",
+    "people": [
+      {
+        "name": "Fransisco Cianca",
+        "photo": "../images/person.jpg",
+        "position": "Gerente de Sites",
+        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+      },
+      {
+        "name": "Rafael Montante",
+        "photo": "../images/person.jpg",
+        "position": "Gerente de Sistemas",
+        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+      },
+      {
+        "name": "Marcos Azkenazi",
+        "photo": "../images/person.jpg",
+        "position": "Gerente de Area de desarrollo",
+        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+      },
+      {
+        "name": "Luis Jimenez",
+        "photo": "../images/person.jpg",
+        "position": "CEO at Query.la",
+        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+      }
+    ]
+
+  },
+  "interest": {
+    "title": "interest",
+    "categories": [
+      {
+        "title": "Software Development",
+        "image": "../images/interest/development.png",
+        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+      },
+      {
+        "title": "Artificial Intellingense",
+        "image": "../images/interest/artificial.png",
+        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+      },
+      {
+        "title": "Circuits",
+        "image": "../images/interest/circuits.png",
+        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+      },
+      {
+        "title": "Design",
+        "image": "../images/interest/design.png",
+        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+      },
+      {
+        "title": "Robotics",
+        "image": "../images/interest/robotics.png",
+        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+      },
+      {
+        "title": "Science",
+        "image": "../images/interest/science.png",
+        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+      }
+    ]
+  }
+}

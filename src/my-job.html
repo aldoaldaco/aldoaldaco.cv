@@ -201,6 +201,23 @@
         margin-bottom: 5px;
         color: var(--app-primary-color);
       }
+      @media only screen and (max-width: 1200px) {
+        .job-header {
+          position: relative;
+          flex-direction: column;
+          justify-content: center;
+          align-content: center;
+          align-items: center;
+        }
+        .job-header-right {
+          position: absolute;
+          bottom: 0;
+          right: 5px;
+        }
+        .plus p {
+          display: none;
+        }
+      }
     </style>
     <div class="job">
       <div class="circle">
@@ -291,8 +308,10 @@
 
       }
       _computeDate(value) {
-        if(value.initDate && value.endDate) {
-          return `${value.initDate} - ${value.endDate}`;
+        if(value) {
+          if(value.initDate && value.endDate) {
+            return `${value.initDate} - ${value.endDate}`;
+          }
         }
         return ``;
       }
