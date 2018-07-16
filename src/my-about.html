@@ -4,6 +4,7 @@
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-about">
@@ -12,6 +13,9 @@
       :host {
         display: block;
         padding: 10px;
+      }
+      :host([hidden]), [hidden] {
+        display: none !important;
       }
       .description {
         width: 90%;
@@ -60,8 +64,6 @@
       .school {
         display: flex;
         flex-direction: row;
-      }
-      .school {
         margin-top: 10px;
       }
       .school div {
@@ -139,11 +141,12 @@
       }
       .picture {
         width: 80%;
+        height: auto;
         margin-bottom: 10px;
       }
       .comment {
-        width: 18%;
-        height: 18%;
+        width: 15%;
+        height: 15%;
         padding: 10px;
         border-radius: 50%;
         background-color: var(--app-third-color);
@@ -215,79 +218,96 @@
         text-align: justify;
         color: var(--app-sixth-color);
       }
+      @media only screen and (max-width: 1200px) {
+        .people {
+          flex-direction: column;
+        }
+        .person {
+          width: calc(100% - 20px);
+          padding-top: 20px;
+        }
+        .education {
+          flex-direction: column;
+        }
+        .schools {
+          width: 100%;
+        }
+        .courses {
+          width: 100%;
+        }
+      }
     </style>
-  <div class="description">
-
-    <div class="section about">
-      <h3 class="header">[[_computeSection(info.about.title)]]</h3>
-      <p>[[info.about.description]]</p>
-      <div class="separator"></div>
+    <iron-ajax handle-as="json" method="GET" auto url="../data/about.json" last-response="{{obj}}"></iron-ajax>
+    <div class="spinner" hidden="[[!spinner]]">
+      <paper-spinner active="[[spinner]]"></paper-spinner>
     </div>
-
-    <div class="section">
-      <h3 class="header">[[_computeSection(info.education.title)]]</h3>
-      <div class="education">
-        <div class="schools">
-          <template is="dom-repeat" items="[[info.education.school]]" as="school">
-            <div class="school">
-              <iron-icon icon="social:school" class="gap"></iron-icon>
-              <div>
-                <h3>[[school.name]]</h3>
-                <h4>[[school.college]]</h4>
+    <div class="description" hidden="[[spinner]]">
+      <div class="section about">
+        <h3 class="header">[[_computeSection(info.about.title)]]</h3>
+        <p>[[info.about.description]]</p>
+        <div class="separator"></div>
+      </div>
+      <div class="section">
+        <h3 class="header">[[_computeSection(info.education.title)]]</h3>
+        <div class="education">
+          <div class="schools">
+            <template is="dom-repeat" items="[[info.education.school]]" as="school">
+              <div class="school">
+                <iron-icon icon="social:school" class="gap"></iron-icon>
+                <div>
+                  <h3>[[school.name]]</h3>
+                  <h4>[[school.college]]</h4>
+                </div>
+              </div>
+            </template>
+          </div>
+          <div class="courses">
+            <h5 style="text-align: center;">Courses</h5>
+            <template is="dom-repeat" items="[[info.education.courses]]" as="course">
+              <div class="course">
+                <iron-icon icon="icons:code" class="code"></iron-icon>
+                <p>[[course.title]]</p>
+              </div>
+            </template>
+          </div>
+        </div>
+        <div class="separator"></div>
+      </div>
+      <div class="section references">
+        <h3 class="header">[[_computeSection(info.references.title)]]</h3>
+        <div class="people">
+          <template is="dom-repeat" items="[[info.references.people]]" as="reference">
+            <div class="person">
+              <div class="picture">
+                <iron-icon icon="editor:format-quote" class="comment"></iron-icon>
+              </div>
+              <div class="name">
+                <h3 style="color: var(--app-sixth-color);">[[reference.name]]</h3>
+                <p>[[reference.description]]</p>
               </div>
             </div>
           </template>
         </div>
-        <div class="courses">
-          <h5 style="text-align: center;">Courses</h5>
-          <template is="dom-repeat" items="[[info.education.courses]]" as="course">
-            <div class="course">
-              <iron-icon icon="icons:code" class="code"></iron-icon>
-              <p>[[course.title]]</p>
+        <div class="separator"></div>
+      </div>
+      <div class="section">
+        <h3 class="header">[[_computeSection(info.interest.title)]]</h3>
+        <div class="interest">
+          <template is="dom-repeat" items="[[info.interest.categories]]" as="interest">
+            <div class="category">
+              <div class="category-image">
+                <iron-image sizing="cover" position="center" src$="[[interest.image]]"></iron-image>
+              </div>
+              <div class="show-hover">
+                <h4>[[interest.title]]</h4>
+                <p>[[interest.description]]</p>
+              </div>
             </div>
           </template>
         </div>
+        <div class="separator"></div>
       </div>
-      <div class="separator"></div>
     </div>
-
-    <div class="section references">
-      <h3 class="header">[[_computeSection(info.references.title)]]</h3>
-      <div class="people">
-        <template is="dom-repeat" items="[[info.references.people]]" as="reference">
-          <div class="person">
-            <div class="picture">
-              <iron-icon icon="editor:format-quote" class="comment"></iron-icon>
-            </div>
-            <div class="name">
-              <h3 style="color: var(--app-sixth-color);">[[reference.name]]</h3>
-              <p>[[reference.description]]</p>
-            </div>
-          </div>
-        </template>
-      </div>
-      <div class="separator"></div>
-    </div>
-
-    <div class="section">
-      <h3 class="header">[[_computeSection(info.interest.title)]]</h3>
-      <div class="interest">
-        <template is="dom-repeat" items="[[info.interest.categories]]" as="interest">
-          <div class="category">
-            <div class="category-image">
-              <iron-image sizing="cover" position="center" src$="[[interest.image]]"></iron-image>
-            </div>
-            <div class="show-hover">
-              <h4>[[interest.title]]</h4>
-              <p>[[interest.description]]</p>
-            </div>
-          </div>
-        </template>
-      </div>
-      <div class="separator"></div>
-    </div>
-
-  </div>
   </template>
 
   <script>
@@ -297,127 +317,16 @@
         return {
           info: {
             type: Object,
-            value: {
-              about: {
-                title: 'about me',
-                description: 'My name is Aldo, i\'m 26 years old, i\'m a Software Engineer, i have a 2 year old son and i\'m married, i work for the biggest bank in Mexico at BBVA Bancomer Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit'
-              },
-              education: {
-                title: 'education',
-                courses: [
-                  {
-                    title: 'Web Expert Developer',
-                    icon: 'person',
-                    description: ''
-                  },{
-                    title: 'Agil Mind',
-                    icon: 'person',
-                    description: ''
-                  },{
-                    title: 'Introduction to Laravel 4',
-                    icon: 'web',
-                    description: ''
-                  },{
-                    title: 'Advance CSS and Sass',
-                    icon: 'web',
-                    description: ''
-                  }, {
-                    title: 'ReactJS + Redux + ES6',
-                    icon: 'web',
-                    description: ''
-                  }, {
-                    title: 'Test DJANGO',
-                    icon: 'web',
-                    description: ''
-                  }, {
-                    title: 'The complete Java course',
-                    icon: 'web',
-                    description: ''
-                  }
-                ],
-                school: [
-                  {
-                  name: 'Instituto Politecnico Nacional',
-                  college: 'Escuala Superior de Computo',
-                  career: 'Compute Science',
-                  grade: 'Engineer in Systems',
-                  description: 'Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit'
-                  },
-                  {
-                  name: 'Instituto Politecnico Nacional',
-                  college: 'CECyT. 11 Wilfrido Massiue Perez',
-                  career: 'Compute Science',
-                  grade: 'Technique in telecomunications',
-                  description: 'Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit'
-                  }
-                ]
-              },
-              references: {
-                title: 'references',
-                people: [
-                  {
-                    name: 'Fransisco Cianca',
-                    photo: '../images/person.jpg',
-                    position: 'Gerente de Sites',
-                    description: 'Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit'
-                  },
-                  {
-                    name: 'Rafael Montante',
-                    photo: '../images/person.jpg',
-                    position: 'Gerente de Sistemas',
-                    description: 'Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit'
-                  },
-                  {
-                    name: 'Marcos Azkenazi',
-                    photo: '../images/person.jpg',
-                    position: 'Gerente de Area de desarrollo',
-                    description: 'Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit'
-                  },
-                  {
-                    name: 'Luis Jimenez',
-                    photo: '../images/person.jpg',
-                    position: 'CEO at Query.la',
-                    description: 'Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit'
-                  }
-                ]
-
-              },
-              interest: {
-                title: 'interest',
-                categories: [
-                  {
-                    title: 'Software Development',
-                    image: '../images/interest/development.png',
-                    description: 'Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit'
-                  },
-                  {
-                    title: 'Artificial Intellingense',
-                    image: '../images/interest/artificial.png',
-                    description: 'Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit'
-                  },
-                  {
-                    title: 'Circuits',
-                    image: '../images/interest/circuits.png',
-                    description: 'Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit'
-                  },
-                  {
-                    title: 'Design',
-                    image: '../images/interest/design.png',
-                    description: 'Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit'
-                  },
-                  {
-                    title: 'Robotics',
-                    image: '../images/interest/robotics.png',
-                    description: 'Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit'
-                  },
-                  {
-                    title: 'Science',
-                    image: '../images/interest/science.png',
-                    description: 'Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit'
-                  }
-                ]
-              }
-            }
+            value: {}
+          },
+          obj: {
+            type: Object,
+            value: {},
+            observer: '_bindData'
+          },
+          spinner: {
+            type: Boolean,
+            value: true
           }
         };
       }
@@ -426,6 +335,12 @@
           return section.replace(' ', '-');
         }
         return '';
+      }
+      _bindData(response) {
+        setTimeout(() => {
+          this.spinner = false;
+          this.set('info', response);
+        }, 1000);
       }
     }
 

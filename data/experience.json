@@ -1,0 +1,106 @@
+[
+  {
+    "title": "Support & Sharepoint Administrator",
+    "company": "Migdal Arquitectos",
+    "description": "Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks",
+    "projects": [{
+      "title": "Access System",
+      "stack": ["HTML", "CSS", "SQL", "ASP"],
+      "description": "System to get control about the people that ..."
+    }, {
+      "title": "TODO System",
+      "stack": ["HTML", "CSS", "SQL", "ASP"],
+      "description": "System to get control about the tasks of the team of developers"
+    }, {
+      "title": "TODO System",
+      "stack": ["HTML", "CSS", "SQL", "ASP"],
+      "description": "System to get control about the tasks of the team of developers"
+    }],
+    "initDate": "2012",
+    "endDate": "2013"
+  },
+  {
+    "title": "FullStack Developer",
+    "company": "EInteligent",
+    "description": "Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks",
+    "projects": [{
+      "title": "Access System",
+      "stack": ["HTML", "CSS", "SQL", "ASP"],
+      "description": "System to get control about the people that ..."
+    }, {
+      "title": "TODO System",
+      "stack": ["HTML", "CSS", "SQL", "ASP"],
+      "description": "System to get control about the tasks of the team of developers"
+    }, {
+      "title": "TODO System",
+      "stack": ["HTML", "CSS", "SQL", "ASP"],
+      "description": "System to get control about the tasks of the team of developers"
+    }],
+    "initDate": "2013",
+    "endDate": "2014"
+  },
+  {
+    "title": "Backend Developer",
+    "company": "Premium Restaurant Brands",
+    "description": "Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks",
+    "projects": [{
+      "title": "Monitor System",
+      "stack": ["BASH", "C"],
+      "description": "Script to compare the quantity of chicken meat ..."
+    }, {
+      "title": "Modelo de Labor",
+      "stack": ["BASH"],
+      "description": "Script to compare the quantity of chicken meat ..."
+    }],
+    "initDate": "2014",
+    "endDate": "2015"
+  },
+  {
+    "title": "Database Administrator",
+    "company": "American Express",
+    "description": "Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks",
+    "projects": [{
+      "title": "Monitor System",
+      "stack": ["BASH", "C"],
+      "description": "Script to compare the quantity of chicken meat ..."
+    }, {
+      "title": "Modelo de Labor",
+      "stack": ["BASH"],
+      "description": "Script to compare the quantity of chicken meat ..."
+    }],
+    "initDate": "2015",
+    "endDate": "2015"
+  },
+  {
+    "title": "FullStack Developer",
+    "company": "C3ntro Telecom",
+    "description": "Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks",
+    "projects": [{
+      "title": "Monitor System",
+      "stack": ["BASH", "C"],
+      "description": "Script to compare the quantity of chicken meat ..."
+    }, {
+      "title": "Modelo de Labor",
+      "stack": ["BASH"],
+      "description": "Script to compare the quantity of chicken meat ..."
+    }],
+    "initDate": "2015",
+    "endDate": "2016"
+  },
+  {
+    "title": "FrontEnd Developer",
+    "company": "BBVA Bancomer",
+    "description": "Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks",
+    "projects": [{
+      "title": "Monitor System",
+      "stack": ["BASH", "C"],
+      "description": "Script to compare the quantity of chicken meat ..."
+    }, {
+      "title": "Modelo de Labor",
+      "stack": ["BASH"],
+      "description": "Script to compare the quantity of chicken meat ..."
+    }],
+    "initDate": "2013",
+    "endDate": "2014"
+  }
+]
