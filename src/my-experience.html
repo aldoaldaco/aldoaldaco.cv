@@ -7,17 +7,18 @@
 <dom-module id="my-experience">
   <template>
     <style include="shared-styles">
-      :host([hidden]), [hidden] {
-        display: none !important;
-      }
       :host {
         display: block;
         padding: 10px;
       }
+      h3 {
+        margin: 0 auto;
+      }
     </style>
     <iron-ajax handle-as="json" method="GET" auto url="../data/experience.json" last-response="{{obj}}"></iron-ajax>
     <div class="spinner" hidden="[[!spinner]]">
-      <paper-spinner active="[[spinner]]"></paper-spinner>
+      <paper-spinner id="experience" active></paper-spinner>
+      <h3>Loading ...</h3>
     </div>
     <template is="dom-repeat" items="[[jobs]]" as="job">
       <my-job number="[[index]]" job="[[job]]"></my-job>
@@ -48,10 +49,12 @@
         }
       }
       _bindData(response) {
-        setTimeout(() => {
-          this.spinner = false;
-          this.set('jobs', response);
-        }, 1500);
+        if(response.length > 0) {
+          setTimeout(() => {
+            this.spinner = false;
+            this.set('jobs', response);
+          }, 2000);
+        }
       }
     }
     window.customElements.define(MyExperience.is, MyExperience);

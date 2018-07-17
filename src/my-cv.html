@@ -11,6 +11,8 @@
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="my-icons.html">
 <link rel="import" href="shared-styles.html">
 
@@ -34,6 +36,31 @@
           box-shadow: 0px -10px 22px 11px rgba(248,248,248,1);
         };
         --app-drawer-width: 300px;
+      }
+      paper-dialog {
+        --paper-dialog: {
+          width: 80%;
+          height: auto;
+        };
+        --paper-dialog-button-color: var(--app-primary-color);
+        border: 2px solid;
+        -webkit-box-shadow: 0px -2px 22px 5px rgba(248,248,248,0.5);
+        -moz-box-shadow: 0px -2px 22px 5px rgba(248,248,248,0.5);
+        box-shadow: 0px -2px 22px 5px rgba(248,248,248,0.5);
+        color: var(--app-primary-color);
+      }
+      .buttons {
+        margin: 0 auto;
+        width: 200px;
+        color: var(--app-fifth-color);
+      }
+      .buttons paper-button {
+        width: 80%;
+        margin: 0 auto;
+        background-color: var(--app-primary-color);
+      }
+      span {
+        color: var(--app-third-color);
       }
       app-drawer-layout:not([narrow]) [drawer-toggle] {
         display: none;
@@ -67,7 +94,7 @@
         display: block;
         padding: 0 16px;
         text-decoration: none;
-        color: var(--app-secondary-color);
+        color: var(--app-primary-color);
         line-height: 45px;
       }
       .drawer-list a.iron-selected {
@@ -104,7 +131,7 @@
         height: 150px;
         padding: 5px;
         border-radius: 50%;
-        border: 2px solid var(--app-third-color);
+        border: 3px solid var(--app-third-color);
         margin-bottom: 10px;
       }
       .profile {
@@ -133,6 +160,15 @@
         data="{{routeData}}"
         tail="{{subroute}}">
     </app-route>
+
+
+    <paper-dialog id="animated" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop>
+      <h1>Sorry ...</h1>
+      <p>This service is unavailable, please send an email to <span>aldo_aldaco@hotmail.com </span>...</p>
+      <div class="buttons">
+        <paper-button dialog-confirm autofocus>Accept</paper-button>
+      </div>
+    </paper-dialog>
 
     <app-drawer-layout fullbleed narrow="{{narrow}}">
       <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
@@ -167,7 +203,7 @@
           <my-about name="about"></my-about>
           <my-experience name="experience"></my-experience>
           <my-skills name="skills"></my-skills>
-          <my-contact name="contact"></my-contact>
+          <my-contact name="contact" on-open-modal-message="_openModal"></my-contact>
           <my-view404 name="view404"></my-view404>
         </iron-pages>
       </app-header-layout>
@@ -224,6 +260,10 @@
           return page.toUpperCase();
         }
         return '';
+      }
+      _openModal() {
+        let modal = this.shadowRoot.querySelector('#animated');
+        modal.open();
       }
     }
 

@@ -265,7 +265,7 @@
             </div>
             <div class="areas">
               <paper-textarea label="Your message"></paper-textarea>
-              <paper-button raised>Send message</paper-button>
+              <paper-button on-click="_openModal" raised>Send message</paper-button>
             </div>
           </form>
         </iron-form>
@@ -284,6 +284,13 @@
             value: {}
           }
         };
+      }
+      _openModal() {
+        this.dispatchEvent(new CustomEvent('open-modal-message', {
+         bubbles: true,
+         composed: true,
+         detail: true
+        }));
       }
     }
     window.customElements.define(MyContact.is, MyContact);

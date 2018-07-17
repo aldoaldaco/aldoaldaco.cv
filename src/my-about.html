@@ -14,9 +14,6 @@
         display: block;
         padding: 10px;
       }
-      :host([hidden]), [hidden] {
-        display: none !important;
-      }
       .description {
         width: 90%;
         height: 100vh;
@@ -64,7 +61,7 @@
       .school {
         display: flex;
         flex-direction: row;
-        margin-top: 10px;
+        margin-top: 20px;
       }
       .school div {
         margin-left: 10px;
@@ -81,8 +78,9 @@
         width: 12%;
         height: 13%;
         border-radius: 50%;
+        padding: 5px;
         color: var(--app-sixth-color);
-        /*background-color: var(--app-fourth-color);*/
+        background-color: var(--app-fourth-color);
       }
       .courses {
         width: 50%;
@@ -206,11 +204,12 @@
         position: absolute;
         top: 80%;
         color: var(--app-sixth-color);
-        background-color: var(--app-primary-color);
+        background-color: #000;
         opacity: 0.8;
       }
       .show-hover h4 {
         text-align: center;
+        color: var(--app-third-color);
       }
       .show-hover p {
         padding-left: 10px;
@@ -239,7 +238,8 @@
     </style>
     <iron-ajax handle-as="json" method="GET" auto url="../data/about.json" last-response="{{obj}}"></iron-ajax>
     <div class="spinner" hidden="[[!spinner]]">
-      <paper-spinner active="[[spinner]]"></paper-spinner>
+      <paper-spinner id="about" active></paper-spinner>
+      <h3>Loading ...</h3>
     </div>
     <div class="description" hidden="[[spinner]]">
       <div class="section about">
@@ -337,10 +337,12 @@
         return '';
       }
       _bindData(response) {
-        setTimeout(() => {
-          this.spinner = false;
-          this.set('info', response);
-        }, 1000);
+        if(Object.keys(response).length > 0) {
+          setTimeout(() => {
+            this.spinner = false;
+            this.info = response;
+          }, 2000);
+        }
       }
     }
 

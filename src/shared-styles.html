@@ -5,13 +5,15 @@
 <dom-module id="shared-styles">
   <template>
     <style>
+      :host([hidden]), [hidden] {
+        display: none !important;
+      }
       :host {
-        --app-primary-color: #000000;
-      /*  --app-secondary-color: #23808A;
-        --app-third-color: #1A9AA4;
-        1da300*/
-      --app-secondary-color: #ED5429;
-      --app-third-color: #FF6F56;
+        --app-primary-color: #0d2946;
+        --app-secondary-color: #ff9800;
+        --app-third-color: #f6412d;
+      /*--app-secondary-color: #ED5429;
+      --app-third-color: #FF6F56;*/
       --app-fourth-color: #757575;
       --app-fifth-color: #EEEEEE;
       --app-sixth-color: #F8F8F8;
@@ -23,18 +25,25 @@
       width: 200px;
       height: 200px;
       --paper-spinner-layer-1-color: var(--app-third-color);
-      --paper-spinner-layer-2-color: var(--app-fourth-color);
-      --paper-spinner-layer-3-color: var(--app-fifth-color);
-      --paper-spinner-layer-4-color: var(--app-sixth-color);
+      --paper-spinner-layer-2-color: var(--app-secondary-color);
+      --paper-spinner-layer-3-color: var(--app-sixth-color);
+      --paper-spinner-layer-4-color: var(--app-secondary-color);
     }
     .spinner {
       width: 100%;
       height: 100vh;
-      border-width: 10px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       align-content: center;
+    }
+    .spinner h3 {
+      margin-top: 20px;
+      color: var(--app-sixth-color);
+    }
+    paper-button:focus {
+      outline: none;
     }
 </style>
   </template>

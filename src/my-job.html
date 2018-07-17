@@ -22,6 +22,7 @@
         width: 88%;
         margin: 24px;
         margin-top: 0;
+        margin-left: 20px;
         color: var(--app-fourth-color);
         border-radius: 5px;
         background-color: var(--app-fifth-color);
@@ -234,10 +235,10 @@
             <h3>[[date]]</h3>
             <p>[[job.description]]</p>
           </div>
-          <div class="job-header-right">
+          <div class="job-header-right" hidden="[[!_computeIf(job.projects)]]">
             <div class="plus">
-              <p>More Info</p>
-              <paper-icon-button on-click="_openAccordion" icon="icons:add-circle"></paper-icon-button>
+              <p>[[legend]]</p>
+              <paper-icon-button on-click="_openAccordion" icon="[[plusIcon]]"></paper-icon-button>
             </div>
           </div>
         </div>
@@ -297,6 +298,18 @@
           hideInfo: {
             type: Boolean,
             value: false
+          },
+          plusIcon: {
+            type: String,
+            value: 'icons:add-circle'
+          },
+          downIcon: {
+            type: String,
+            value: 'icons:arrow-drop-down'
+          },
+          legend: {
+            type: String,
+            value: 'More info'
           }
         };
       }
@@ -324,10 +337,25 @@
       }
       _openAccordion() {
         this.hideAccordion = !this.hideAccordion;
+        if(this.hideAccordion === true) {
+          this.plusIcon = 'icons:remove-circle';
+          this.legend = 'Less info';
+        } else {
+          this.plusIcon = 'icons:add-circle';
+          this.legend = 'More info';
+        }
       }
       _showInfo(event) {
-        let info = this.shadowRoot.querySelector('.'.concat(event.currentTarget.id));
-        info.getAttribute('hidden') ? info.removeAttribute('hidden') : info.setAttribute('hidden', true);
+        let id = event.currentTarget.id;
+        let button = this.shadowRoot.querySelector('#'.concat(id));
+        let info = this.shadowRoot.querySelector('.'.concat(id));
+        if(info.getAttribute('hidden')) {
+          info.removeAttribute('hidden');
+          button.querySelector('iron-icon').icon = 'icons:arrow-drop-up';
+        } else {
+          info.setAttribute('hidden', true);
+          button.querySelector('iron-icon').icon = 'icons:arrow-drop-down';
+        }
       }
       _computedId(name, index) {
         if(name && index >= 0) {
@@ -335,6 +363,12 @@
           return `${id}-${index}`;
         }
         return ``;
+      }
+      _computeIf(projects) {
+        if(projects.length > 0) {
+          return true;
+        }
+        return false;
       }
     }
     window.customElements.define(MyJob.is, MyJob);

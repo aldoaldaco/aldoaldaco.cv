@@ -2,39 +2,27 @@
   {
     "title": "Support & Sharepoint Administrator",
     "company": "Migdal Arquitectos",
-    "description": "Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks",
-    "projects": [{
-      "title": "Access System",
-      "stack": ["HTML", "CSS", "SQL", "ASP"],
-      "description": "System to get control about the people that ..."
-    }, {
-      "title": "TODO System",
-      "stack": ["HTML", "CSS", "SQL", "ASP"],
-      "description": "System to get control about the tasks of the team of developers"
-    }, {
-      "title": "TODO System",
-      "stack": ["HTML", "CSS", "SQL", "ASP"],
-      "description": "System to get control about the tasks of the team of developers"
-    }],
+    "description": "Provide support to sharepoint users by granting read and write permissions on architectural projects, creation and configuration of projects for the management of architectural blueprints.",
+    "projects": [],
     "initDate": "2012",
     "endDate": "2013"
   },
   {
     "title": "FullStack Developer",
     "company": "EInteligent",
-    "description": "Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks",
+    "description": "Development of financial systems, developed with a server-side Microsoft technology for dynamic web systems  Active Server Pages(ASP), HTML, CSS and JavaScript, mounted on Internet Information Services (IIS), these systems were created for different clients.",
     "projects": [{
-      "title": "Access System",
+      "title": "Accel Logistica",
       "stack": ["HTML", "CSS", "SQL", "ASP"],
-      "description": "System to get control about the people that ..."
+      "description": "Web system for the administration and monitoring of the products transported by said accel logistics, developed with pattern MVC, Model and Controller was developed with ASP and SQL Server, the view with JS, HTML and CSS"
     }, {
       "title": "TODO System",
       "stack": ["HTML", "CSS", "SQL", "ASP"],
-      "description": "System to get control about the tasks of the team of developers"
+      "description": "web system for the creation and monitoring of development tasks of each developer."
     }, {
-      "title": "TODO System",
+      "title": "Financiera Siempre Creciendo",
       "stack": ["HTML", "CSS", "SQL", "ASP"],
-      "description": "System to get control about the tasks of the team of developers"
+      "description": "Financial systems for generate, and managing the loans of the company"
     }],
     "initDate": "2013",
     "endDate": "2014"
@@ -44,11 +32,11 @@
     "company": "Premium Restaurant Brands",
     "description": "Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks",
     "projects": [{
-      "title": "Monitor System",
+      "title": "Pizza Hut",
       "stack": ["BASH", "C"],
       "description": "Script to compare the quantity of chicken meat ..."
     }, {
-      "title": "Modelo de Labor",
+      "title": "Kentucky Fried Chicken - KFC",
       "stack": ["BASH"],
       "description": "Script to compare the quantity of chicken meat ..."
     }],
