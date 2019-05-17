@@ -1,61 +1,52 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../bower_components/vaadin-progress-bar/vaadin-progress-bar.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="../src/my-graphs.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-skills">
   <template>
     <style include="shared-styles">
       :host {
-        display: block;
-        padding: 10px;
-        color: var(--app-sixth-color);
-        --lumo-primary-color: var(--app-third-color);
-        --lumo-contrast-10pct: var(--app-sixth-color);
+        padding: 0;
+        margin: 0;
+        color: white;
       }
-      .section {
-        width: 90%;
+      .cardContainer {
+        width: 100%;
+        height: 100vh;
+        margin-top: 50px;
+        display: flex;
+        flex-flow: wrap;
+        justify-content: center;
+      }
+      .card {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-content: center;
-        margin: 0 auto;
-        margin-top: 50px;
-      }
-      .skill {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        text-align: center;
-        margin-bottom: 5px;
-        color: var(--app-sixth-color);
-      }
-      vaadin-progress-bar {
-        width: 90%;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+        height: 400px;
+        margin: 10px 30px 10px 0;
         text-align: center;
       }
-      h2 {
-        margin: 0 auto;
+      .card:first-child {
+        margin: 10px 0 10px 0;
       }
-      h3 {
-        margin-top: 0;
-        margin-bottom: 0px;
-        margin-left: 10px;
-        font-size: 12px;
-      }
-      .porcentage {
-        width: 10%;
-        text-align: center;
+      .card:last-child {
+        margin: 10px 0 10px 0;
       }
     </style>
-
-    <div class="section">
-      <template is="dom-repeat" items="[[skills]]" as="skill">
-        <h3>[[skill.tech]]</h3>
-        <div class="skill">
-          <vaadin-progress-bar value="[[skill.level]]"></vaadin-progress-bar>
-          <div class="porcentage">[[_computePercentage(skill)]]</div>
-        </div>
-      </template>
+    <iron-ajax handle-as="json" method="GET" auto url="../data/skills.json" last-response="{{skills}}"></iron-ajax>
+    <div class="spinner" hidden="[[!spinner]]">
+      <paper-spinner id="experience" active></paper-spinner>
+      <h3>Loading ...</h3>
+    </div>
+    <div class="cardContainer">
+      <div class="card" hidden="[[spinner]]">
+        <canvas id="chart"></canvas>
+      </div>
     </div>
   </template>
 
@@ -67,46 +58,107 @@
       static get properties() {
         return {
           skills: {
-            type: Array,
-            value: [{
-              section: 'Web Development',
-              tech: 'HTML',
-              level: 0.7
-            }, {
-              section: 'Web Development',
-              tech: 'CSS',
-              level: 0.7
-            }, {
-              section: 'Web Development',
-              tech: 'JS',
-              level: 0.65
-            }, {
-              section: 'Bakend Development',
-              tech: 'NODE JS',
-              level: 0.6
-            }, {
-              section: 'Bakend Development',
-              tech: 'PHP',
-              level: 0.6
-            }, {
-              section: 'Bakend Development',
-              tech: 'JAVA',
-              level: 0.5
-            }, {
-              section: 'Bakend Development',
-              tech: 'PYTHON',
-              level: 0.4
-            }, {
-              section: 'Bakend Development',
-              tech: 'C',
-              level: 0.6
-            }, {
-              section: 'Bakend Development',
-              tech: 'C++',
-              level: 0.3
-            }]
+            type: Object,
+            value: {},
+            observer: '_createGraph'
+          },
+          options: {
+            type: Object,
+            value: {}
+          },
+          spinner: {
+            type: Boolean,
+            value: true
           }
         };
+      }
+      connectedCallback() {
+        super.connectedCallback();
+        Chart.defaults.global.animation.duration = 2000;
+        Chart.defaults.global.animation.easing = 'easeOutExpo';
+        Chart.defaults.global.legend.display = false;
+        Chart.defaults.global.startAngle = 36;
+        Chart.defaults.global.tooltips.backgroundColor = 'rgba(204, 204, 204, 0.9)';
+        Chart.defaults.global.tooltips.titleFontColor = 'rgba(59, 59, 59, 1)';
+        Chart.defaults.global.tooltips.titleFontFamily = "'Lato', sans-serif";
+        Chart.defaults.global.tooltips.titleFontSize = 16;
+        Chart.defaults.global.tooltips.titleSpacing = 1;
+        Chart.defaults.global.tooltips.titleMarginBottom = 20;
+        Chart.defaults.global.tooltips.bodyFontColor = 'rgba(59, 59, 59, 1)';
+        Chart.defaults.global.tooltips.bodyFontFamily = "'Lato', sans-serif";
+        Chart.defaults.global.tooltips.bodyFontSize = 14;
+        Chart.defaults.global.tooltips.bodySpacing = 1;
+        Chart.defaults.global.tooltips.xPadding = 10;
+        Chart.defaults.global.tooltips.yPadding = 10;
+        Chart.defaults.global.tooltips.cornerRadius = 3;
+        Chart.defaults.global.tooltips.enabled = true;
+        Chart.defaults.global.tooltips.mode = 'point';
+        Chart.defaults.global.tooltips.position = 'nearest';
+        Chart.defaults.radar.scale.gridLines = false;
+      }
+      _createGraph(skills) {
+        if(Object.keys(skills).length > 0) {
+          setTimeout(() => {
+            this.spinner = false;
+            this.set('options', this.skills);
+            const ctx = this.$.chart.getContext('2d');
+            return new Chart(ctx, this.options);
+            /*var myChartBusiness = new Chart(ctx, {
+              type: 'radar',
+              data: {
+                labels: [["Process","Excellence"], ["Problem","Solving"], "Facilitation", ["Project","Mgmt"], ["Change","Mgmt"]],
+                datasets: [
+                  {
+                    label: "P.Practitioner",
+                    lineTension: 0.1,
+                    backgroundColor: "rgba(102, 153, 204, 0.2)",
+                    borderColor: "rgba(102, 153, 204, 1)",
+                    pointBackgroundColor: "rgba(102, 153, 204, 1)",
+                    pointBorderColor: "#fff",
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(102, 153, 204, 1)",
+                    data: [2, 3, 2, 1, 3]
+                  },
+                  {
+                    label: "P.Manager",
+                    lineTension: 0.1,
+                    backgroundColor: "rgba(255, 204, 102, 0.2)",
+                    borderColor: "rgba(255, 204, 102, 1)",
+                    pointBackgroundColor: "rgba(255, 204, 102, 1)",
+                    pointBorderColor: "#fff",
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(255, 204, 102, 1)",
+                    data: [2, 3, 3, 2, 3]
+                  }
+                ]
+              },
+              options: {
+                scale: {
+                  angleLines: {
+                    display: true,
+                    lineWidth: 0.5,
+                    color: 'rgba(128, 128, 128, 0.2)'
+                  },
+                  pointLabels: {
+                    fontSize: 14,
+                    fontStyle: '300',
+                    fontColor: 'rgba(204, 204, 204, 1)',
+                    fontFamily: "'Lato', sans-serif"
+                  },
+                  ticks: {
+                    beginAtZero: true,
+                    maxTicksLimit: 3,
+                    min: 0,
+                    max: 3,
+                    display: false
+                  }
+                }
+              }
+            });*/
+          }, 1500);
+        }
       }
       _computePercentage(skill) {
         if(skill) {

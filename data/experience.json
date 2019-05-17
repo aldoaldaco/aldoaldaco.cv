@@ -28,17 +28,17 @@
     "endDate": "2014"
   },
   {
-    "title": "Backend Developer",
+    "title": "FullStack Developer",
     "company": "Premium Restaurant Brands",
     "description": "Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks",
     "projects": [{
-      "title": "Pizza Hut",
+      "title": "Monitor System",
       "stack": ["BASH", "C"],
-      "description": "Script to compare the quantity of chicken meat ..."
+      "description": "Software to get control of all monitors(electronic menus) in all the restaurants"
     }, {
-      "title": "Kentucky Fried Chicken - KFC",
+      "title": "Modelo de Labor",
       "stack": ["BASH"],
-      "description": "Script to compare the quantity of chicken meat ..."
+      "description": "Script to manage information about the leftover meat in all the restaurants"
     }],
     "initDate": "2014",
     "endDate": "2015"
@@ -46,16 +46,8 @@
   {
     "title": "Database Administrator",
     "company": "American Express",
-    "description": "Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks",
-    "projects": [{
-      "title": "Monitor System",
-      "stack": ["BASH", "C"],
-      "description": "Script to compare the quantity of chicken meat ..."
-    }, {
-      "title": "Modelo de Labor",
-      "stack": ["BASH"],
-      "description": "Script to compare the quantity of chicken meat ..."
-    }],
+    "description": "Generating reports and getting information about the credit cards of american express",
+    "projects": [],
     "initDate": "2015",
     "endDate": "2015"
   },
@@ -63,32 +55,24 @@
     "title": "FullStack Developer",
     "company": "C3ntro Telecom",
     "description": "Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks",
-    "projects": [{
-      "title": "Monitor System",
-      "stack": ["BASH", "C"],
-      "description": "Script to compare the quantity of chicken meat ..."
-    }, {
-      "title": "Modelo de Labor",
-      "stack": ["BASH"],
-      "description": "Script to compare the quantity of chicken meat ..."
-    }],
+    "projects": [],
     "initDate": "2015",
     "endDate": "2016"
   },
   {
     "title": "FrontEnd Developer",
     "company": "BBVA Bancomer",
-    "description": "Developer of a lot of application to get control of the monitors inside the kitchen and developer some scripts to do automatic tasks",
+    "description": "Architecture and global deployment",
     "projects": [{
-      "title": "Monitor System",
-      "stack": ["BASH", "C"],
-      "description": "Script to compare the quantity of chicken meat ..."
+      "title": "Seguros SOS App",
+      "stack": ["Polymer", "JS", "CSS", "HTML"],
+      "description": "App to get support in emergency case"
     }, {
-      "title": "Modelo de Labor",
-      "stack": ["BASH"],
-      "description": "Script to compare the quantity of chicken meat ..."
+      "title": "Components architecture",
+      "stack": ["Polymer", "Lit Element"],
+      "description": "Support for Latin America in deployment of applications"
     }],
-    "initDate": "2013",
-    "endDate": "2014"
+    "initDate": "2017",
+    "endDate": "Actualmente"
   }
 ]

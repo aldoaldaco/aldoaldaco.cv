@@ -158,11 +158,11 @@
         width: 100%;
         margin-top: 10px;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-flow: row wrap;
+        justify-content: space-around;
       }
       .category {
-        width: calc(100% - 20px);
+        width: 320px;
         height: 300px;
         display: flex;
         flex-direction: row;
@@ -283,6 +283,7 @@
               </div>
               <div class="name">
                 <h3 style="color: var(--app-sixth-color);">[[reference.name]]</h3>
+                <h6 style="color: var(--app-secondary-color);">[[reference.position]]</h6>
                 <p>[[reference.description]]</p>
               </div>
             </div>

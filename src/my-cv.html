@@ -236,12 +236,18 @@
         ];
       }
       _routePageChanged(page) {
+        if(page === 'components') {
+          this.page = 'about';
+        }
         this.page = page || 'about';
         if (!this.$.drawer.persistent) {
           this.$.drawer.close();
         }
       }
       _pageChanged(page) {
+        if(page === 'components') {
+          this.page = 'about';
+        }
         const resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
         Polymer.importHref(
             resolvedPageUrl,
@@ -253,9 +259,14 @@
         this.page = 'view404';
       }
       _computeHeader(page) {
-        if(page) {
-          if(page === 'view404') {
+        if (page) {
+          if (page === 'view404') {
             return ''
+          } else if (page === 'skills') {
+            return `HARD ${page.toUpperCase()} && SOFT ${page.toUpperCase()}`;
+          } else if (page === 'components') {
+            this.page = 'about';
+            return 'ABOUT';
           }
           return page.toUpperCase();
         }

@@ -1,7 +1,7 @@
 {
   "about": {
     "title": "about me",
-    "description": "My name is Aldo, i\"m 26 years old, i\"m a Software Engineer, i have a 2 year old son and i\"m married, i work for the biggest bank in Mexico at BBVA Bancomer Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+    "description": "My name is Aldo, im 27 years old, im a Software Engineer, i have a 2 year old son and im married, actually i work for the biggest bank in Mexico at BBVA Bancomer like Front End Developer, working with Polymer & Lit Element"
   },
   "education": {
     "title": "education",
@@ -59,26 +59,26 @@
       {
         "name": "Fransisco Cianca",
         "photo": "../images/person.jpg",
-        "position": "Gerente de Sites",
-        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+        "position": "IT & Sales Manager At American Express",
+        "description": "Colaboro como DBA, con un buen trabajo, obteniendo información de valor para la empresa"
       },
       {
         "name": "Rafael Montante",
         "photo": "../images/person.jpg",
-        "position": "Gerente de Sistemas",
-        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+        "position": "IT Manager At Premium Restaurant Brands",
+        "description": "Contribuyo en el desarrollo de diferentes sistemas demostrando su capacidad y gran esfuerzo"
       },
       {
         "name": "Marcos Azkenazi",
         "photo": "../images/person.jpg",
-        "position": "Gerente de Area de desarrollo",
-        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+        "position": "Software Development Manager At C3ntro Telecom",
+        "description": "Excelente persona y mejor desarrollador, ayudo a la empresa a alcanzar sus objetivos"
       },
       {
         "name": "Luis Jimenez",
         "photo": "../images/person.jpg",
-        "position": "CEO at Query.la",
-        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+        "position": "CEO && CTO at Query.la",
+        "description": "Un gran compañero y un excelente desarrollador, me ayudo a construir Query con una gran dedicación"
       }
     ]
 
@@ -89,32 +89,32 @@
       {
         "title": "Software Development",
         "image": "../images/interest/development.png",
-        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+        "description": "Considero que la industria del software crece cada vez más rapido es por ello que me interesa, pues a nivel que crece esta industria crece la demanda de soluciones tecnologicas más complejas."
       },
       {
         "title": "Artificial Intellingense",
         "image": "../images/interest/artificial.png",
-        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+        "description": "De la industría del software un sector que crece muchisimo muy rapido es la inteligencia artificial tema que me apasiona y me inspira a desarrollar nuevas plataformas implementandola."
       },
       {
         "title": "Circuits",
         "image": "../images/interest/circuits.png",
-        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+        "description": "Circuitos, el elemento mas básico de cualquier sistema tecnológico, me interesa saber como funcionan por debajo, under de hood como dicen algunas personas es importante saber la base de las cosas por ello me interesa este tema."
       },
       {
         "title": "Design",
         "image": "../images/interest/design.png",
-        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+        "description": "El diseño es es una vertiente de los sistemas visuales, no habria sistemas visuales sin un diseño, me gusta mucho el diseño, no soy el mejor pero intento hacer las cosas bien."
       },
       {
         "title": "Robotics",
         "image": "../images/interest/robotics.png",
-        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+        "description": "Como los circuitos, me interesa este tema por el tipo de productos y soluciones que se pueden crear."
       },
       {
         "title": "Science",
         "image": "../images/interest/science.png",
-        "description": "Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit"
+        "description": "La ciencia, es la parte mas importante de nuestra sociedad sin ella no seriamos lo que somos."
       }
     ]
   }
